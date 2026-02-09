@@ -34,7 +34,6 @@ const toggle = useCallback((name) => {
 }
 
 const ListItem = memo(function ListItem({ name, color, selected, onToggle }) {
-  console.log(`render`)
   const click = useCallback(() => onToggle(name), [onToggle, name]);
   return (
     <li key={name} className={`List__item List__item--${color} ${selected ? `List__item--selected` : ``}`} onClick={click}>
