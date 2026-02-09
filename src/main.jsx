@@ -26,7 +26,7 @@ const toggle = useCallback((name) => {
 
     <ul className="List">
       {items.map((item, index) => (
-        <ListItem key={index} name={item.name} color={item.color} selected={selected.includes(item.name)} onToggle={(name) => toggle(name)} />
+        <ListItem key={index} name={item.name} color={item.color} selected={selected.includes(item.name)} onToggle={toggle} />
       ))}
     </ul>
   </Fragment>
@@ -34,6 +34,7 @@ const toggle = useCallback((name) => {
 }
 
 const ListItem = memo(function ListItem({ name, color, selected, onToggle }) {
+  console.log(`render`)
   const click = useCallback(() => onToggle(name), [onToggle, name]);
   return (
     <li key={name} className={`List__item List__item--${color} ${selected ? `List__item--selected` : ``}`} onClick={click}>
